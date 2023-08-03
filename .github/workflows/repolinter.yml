@@ -1,5 +1,7 @@
-name: Snyk Scan
+name: Snyk Scan on a Schedule
 on:
+  schedule:
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 jobs:
