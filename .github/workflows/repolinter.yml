@@ -8,15 +8,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@master
 
-      - name: Set Up Java 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 17
+      # - name: Set Up Java 17
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     distribution: 'temurin'
+      #     java-version: 17
 
       - name: Run Snyk Vulnerability Scan
         uses: snyk/actions/gradle@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --all-sub-projects --org=java-agent
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
