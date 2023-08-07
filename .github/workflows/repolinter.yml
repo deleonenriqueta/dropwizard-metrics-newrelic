@@ -32,13 +32,13 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout Code
-      #   uses: actions/checkout@master
+      - name: Checkout Code
+        uses: actions/checkout@master
 
       - name: Run Snyk Vulnerability Scan
         uses: snyk/actions/gradle@master
         with:
-          args: --all-sub-projects --command=test
+          args: --all-sub-projects
           # args: --all-sub-projects --command=monitor --org=java-agent
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
