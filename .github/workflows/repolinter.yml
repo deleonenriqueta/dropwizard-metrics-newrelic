@@ -19,5 +19,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          organization: java-agent
-          args: --all-sub-projects
+          args: --all-sub-projects --org=java-agent
