@@ -15,6 +15,9 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Gradle Version
+        uses: gradle/gradle-build-action@v3
+        
       - name: Setup Node Version
         uses: actions/setup-node@v4
         with:
