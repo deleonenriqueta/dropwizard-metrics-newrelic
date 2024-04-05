@@ -15,8 +15,13 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node Version
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+    
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: 'main'
           
@@ -26,4 +31,4 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: monitor
-          args: --all-sub-projects --org=java-agent --configuration-matching='(^compileClasspath$)|(^runtimeClasspath$)'
+          args: --all-sub-projects --org=java-agent-test --configuration-matching='(^compileClasspath$)|(^runtimeClasspath$)'
