@@ -15,21 +15,13 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Gradle Version
-        uses: gradle/gradle-build-action@v3
-        
-      - name: Setup Node Version
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-    
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
           ref: 'main'
           
       - name: Run Snyk To Check For Vulnerabilities
-        uses: snyk/actions/gradle@master
+        uses: snyk/actions/gradle-jdk11@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
